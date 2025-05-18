@@ -1,2 +1,8 @@
-<h2>Welcome, {{ session.user }}!</h2>
-<p>This is your dashboard.</p>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head><meta charset="UTF-8"><title>Dashboard</title></head>
+<body>
+  <h1>歡迎，{{ session['user'] }}！這是 Dashboard</h1>
+  <p><a href="{{ url_for('main.logout') }}">登出</a></p>
+</body>
+</html>
