@@ -61,3 +61,8 @@ def quote_pdf(qid):
     pdf.seek(0)
     return send_file(pdf, download_name=f"Quote_{q.quote_no}.pdf", as_attachment=True)
 
+# 🔽 加上這段
+@main.route("/")
+def index():
+    return redirect(url_for("main.list_quotes"))
+
