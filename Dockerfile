@@ -14,5 +14,5 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["gunicorn", "run:app", "--bind", "0.0.0.0:5000"]
+CMD flask db upgrade && gunicorn run:app --bind 0.0.0.0:5000
 
