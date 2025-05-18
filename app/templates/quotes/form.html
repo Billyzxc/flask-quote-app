@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head><meta charset="UTF-8"><title>新增報價單</title></head>
+<body>
+  <h1>新增報價單</h1>
+  <form method="POST">
+    <p>報價單編號：<input type="text" name="quote_no" required></p>
+    <p>客戶名稱：<input type="text" name="client_name" required></p>
+    <p>品號：<input type="text" name="item_number"></p>
+    <p>品名：<input type="text" name="product_name" required></p>
+    <p>產品特性：<textarea name="product_features"></textarea></p>
+    <p>單價：<input type="number" step="0.01" name="unit_price" required></p>
+    <p>數量：<input type="number" name="quantity" required></p>
+    <p>備註：<textarea name="notes"></textarea></p>
+    <button type="submit">送出</button>
+  </form>
+  <p><a href="{{ url_for('main.list_quotes') }}">返回列表</a></p>
+</body>
+</html>
