@@ -1,3 +1,4 @@
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -11,8 +12,8 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
-    # 註冊 Blueprint
     from app.routes import register_blueprints
     register_blueprints(app)
 
     return app
+
