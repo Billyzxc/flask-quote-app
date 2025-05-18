@@ -5,3 +5,4 @@ def register_blueprints(app):
     app.register_blueprint(item_bp,url_prefix='/items')
     app.register_blueprint(order_bp,url_prefix='/orders')
     app.register_blueprint(quote_bp,url_prefix='/quotes')
+    app.register_blueprint(main_bp)     # 加入這行
