@@ -6,6 +6,10 @@ main = Blueprint("main", __name__)
 def home():
     return render_template("home.html")
 
+@main.route("/access-panel")
+def access_panel():
+    return render_template("access-panel.html")
+
 @main.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
