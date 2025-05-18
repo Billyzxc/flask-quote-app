@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-<head><meta charset="UTF-8"><title>Dashboard</title></head>
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+</head>
 <body>
-  <h1>歡迎，{{ session['user'] }}！</h1>
-  <p><a href="{{ url_for('main.change_password') }}">變更密碼</a></p>
-  <p><a href="{{ url_for('main.logout') }}">登出</a></p>
+  <h1>歡迎，{{ session['user'] }}！這是 Dashboard</h1>
+
+  <p>
+    <a href="{{ url_for('main.change_password') }}">變更密碼</a>
+  </p>
+  <p>
+    <a href="{{ url_for('main.logout') }}">登出</a>
+  </p>
 </body>
 </html>
+
