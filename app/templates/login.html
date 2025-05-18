@@ -13,11 +13,9 @@
         <div class="card shadow-sm">
           <div class="card-body">
             <h3 class="card-title text-center mb-4">系統登入</h3>
-            
             {% if error %}
               <div class="alert alert-danger">{{ error }}</div>
             {% endif %}
-            
             <form method="POST">
               <div class="mb-3">
                 <label for="username" class="form-label">帳號</label>
