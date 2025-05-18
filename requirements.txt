@@ -1,4 +1,7 @@
-flask
-flask_sqlalchemy
-xhtml2pdf
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+psycopg2-binary
+WeasyPrint
+
 
