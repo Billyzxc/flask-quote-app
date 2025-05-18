@@ -1,38 +1,27 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash, session
+from flask import Blueprint, render_template, request, redirect, url_for, session
 
 main = Blueprint("main", __name__)
 
-# 🔧 新增這一行來模擬帳號密碼儲存
+# 初始帳密（模擬資料庫）
 users = {"admin": "password"}
 
 @main.route("/", methods=["GET", "POST"])
 def login():
+    error = None
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
         if username in users and users[username] == password:
             session["user"] = username
             return redirect(url_for("main.dashboard"))
-        flash("Invalid credentials")
-    return render_template("login.html")
+        error = "帳號或密碼錯誤"
+    return render_template("login.html", error=error)
 
 @main.route("/dashboard")
 def dashboard():
     if "user" not in session:
         return redirect(url_for("main.login"))
     return render_template("dashboard.html")
-
-@main.route("/access-panel")
-def access_panel():
-    if "user" not in session:
-        return redirect(url_for("main.login"))
-    return render_template("access-panel.html")
-
-@main.route("/logout")
-def logout():
-    session.pop("user", None)
-    flash("You have been logged out.")
-    return redirect(url_for("main.login"))
 
 @main.route("/change-password", methods=["GET", "POST"])
 def change_password():
@@ -54,4 +43,7 @@ def change_password():
             message = "密碼更新成功！"
     return render_template("change-password.html", error=error, message=message)
 
-
+@main.route("/logout")
+def logout():
+    session.pop("user", None)
+    return redirect(url_for("main.login"))
