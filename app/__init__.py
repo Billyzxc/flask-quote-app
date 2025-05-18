@@ -1,4 +1,3 @@
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -16,5 +15,6 @@ def create_app():
     register_blueprints(app)
 
     return app
+
 
 
