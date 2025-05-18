@@ -1,7 +1,8 @@
 from flask import Blueprint, request, jsonify
 from app.services.quote_service import create_quote
+from app.models.quote import Quote  # ✅ 補上這行
 
-quote_bp = Blueprint('quote', __name__)  # 注意名稱用 quote，不是 quotes
+quote_bp = Blueprint('quote', __name__)
 
 @quote_bp.route('/', methods=['POST'])
 def create():
@@ -10,5 +11,6 @@ def create():
 
 @quote_bp.route('/quotes', methods=['GET'])
 def get_all_quotes():
-    return jsonify({"message": "Quote list will be returned here."})
+    quotes = Quote.query.order_by(Quote.created_at.desc()).all()
+    return jsonify([q.to_dict() for q in quotes])
 
