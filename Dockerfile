@@ -12,10 +12,11 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY . .              # ① 先放整包程式碼
-COPY alembic.ini .    # ② 最後覆蓋正確的 ini
+COPY . .
+COPY alembic.ini .
 
 CMD flask db upgrade && gunicorn run:app --bind 0.0.0.0:5000
+
 
 
 
