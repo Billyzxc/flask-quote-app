@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: flask-quote-app
+    env: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    rootDir: .
+    autoDeploy: true
